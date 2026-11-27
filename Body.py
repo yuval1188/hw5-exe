@@ -10,6 +10,13 @@ class Body:
         self.heat_capacity = heat_capacity
         self.temperature = temperature
 
+    def add_heat(self, heat):
+        delta_t = heat / (self.mass * self.heat_capacity)
+        self.temperature = self.temperature + delta_t
+        return self.temperature
+
 
 if __name__ == "__main__":
     body = Body(100, 0.15, 200)
+    print(body.add_heat(20))
+    print(body.add_heat(-40))
