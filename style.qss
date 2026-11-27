@@ -1,0 +1,173 @@
+/* ===== general ===== */
+QWidget {
+    background-color: #F3F5FA;
+    color: #2E3650;
+    font-family: "Segoe UI";
+    font-size: 10pt;
+}
+
+QLabel {
+    background: transparent;
+    color: #5B647A;
+    font-weight: 600;
+}
+
+/* ===== header ===== */
+#title {
+    color: #1E2640;
+    font-size: 22pt;
+    font-weight: 700;
+}
+
+#subtitle {
+    color: #8A93A8;
+    font-size: 10pt;
+    font-weight: 400;
+}
+
+/* ===== the white card ===== */
+#card {
+    background-color: #FFFFFF;
+    border: 1px solid #E4E8F1;
+    border-radius: 18px;
+}
+
+#fieldTitle {
+    color: #2E3650;
+    font-size: 11pt;
+}
+
+/* ===== the two bodies ===== */
+#hotBody {
+    border-radius: 16px;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #FFA07A, stop:1 #E8505B);
+}
+
+#coldBody {
+    border-radius: 16px;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #7CC6FE, stop:1 #3A5BD9);
+}
+
+#bridge {
+    border-radius: 11px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                stop:0 #E8505B, stop:0.5 #C9CEDB, stop:1 #3A5BD9);
+}
+
+/* ===== input boxes ===== */
+QDoubleSpinBox {
+    background-color: #FFFFFF;
+    border: 1px solid #D6DCE8;
+    border-radius: 9px;
+    padding: 6px 10px;
+    min-width: 110px;
+    color: #2E3650;
+}
+
+QDoubleSpinBox:hover {
+    border: 1px solid #A9B4CC;
+}
+
+QDoubleSpinBox:focus {
+    border: 2px solid #6C63FF;
+}
+
+QDoubleSpinBox[readOnly="true"] {
+    background-color: #EEF1F7;
+    color: #6B7489;
+    border: 1px solid #E4E8F1;
+}
+
+/* ===== buttons ===== */
+QPushButton {
+    background-color: #6C63FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 11px;
+    padding: 10px 26px;
+    min-width: 90px;
+    font-weight: 600;
+    font-size: 11pt;
+}
+
+QPushButton:hover {
+    background-color: #5A51F0;
+}
+
+QPushButton:pressed {
+    background-color: #4A42D6;
+}
+
+#startButton {
+    background-color: #2BB67D;
+}
+
+#startButton:hover {
+    background-color: #24A06D;
+}
+
+#startButton:checked {
+    background-color: #E8505B;
+}
+
+#graphsButton {
+    background-color: #FFFFFF;
+    color: #6C63FF;
+    border: 2px solid #6C63FF;
+}
+
+#graphsButton:hover {
+    background-color: #F0EFFF;
+}
+
+#aboutButton {
+    background-color: transparent;
+    color: #6C63FF;
+    border: 1px solid #D6DCE8;
+    padding: 7px 18px;
+    min-width: 60px;
+    font-size: 10pt;
+}
+
+#aboutButton:hover {
+    background-color: #F0EFFF;
+    border: 1px solid #6C63FF;
+}
+
+/* ===== sliders ===== */
+QSlider {
+    background: transparent;
+    min-width: 26px;
+}
+
+QSlider::groove:vertical {
+    width: 8px;
+    border-radius: 4px;
+    background-color: #E4E8F1;
+}
+
+QSlider::handle:vertical {
+    height: 18px;
+    width: 18px;
+    margin: 0px -6px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: 3px solid #6C63FF;
+}
+
+#hotSlider::add-page:vertical {
+    border-radius: 4px;
+    background-color: #F07A6A;
+}
+
+#coldSlider::add-page:vertical {
+    border-radius: 4px;
+    background-color: #5B8DEF;
+}
+
+QDoubleSpinBox::up-button, QDoubleSpinBox::down-button {
+    width: 0px;
+    border: none;
+}
