@@ -219,3 +219,13 @@ QComboBox QAbstractItemView {
 #exportButton:hover {
     background-color: #24A06D;
 }
+
+/* ===== while the simulation runs ===== */
+QDoubleSpinBox:disabled {
+    background-color: #F6F7FA;
+    color: #A0A8BA;
+}
+
+QSlider::handle:vertical:disabled {
+    border: 3px solid #C9CEDB;
+}
