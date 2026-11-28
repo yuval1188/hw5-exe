@@ -16,6 +16,10 @@ class HeatTransfer(QWidget):
         self.body1 = None
         self.body2 = None
         self.dt = 0.05
+        self.time = 0
+        self.time_history = []
+        self.body1_temp_history = []
+        self.body2_temp_history = []
         self.timer = QTimer()
         self.timer.timeout.connect(self.timer_method)
         self.setupUI()
@@ -79,12 +83,17 @@ class HeatTransfer(QWidget):
         self.bridge.setObjectName("bridge")
         self.bridge.setFixedHeight(22)
 
+        self.watt_label = QLabel("Heat flow: 0.00 W")  #bonus
+        self.watt_label.setObjectName("wattLabel")  #bonus
+        self.watt_label.setAlignment(Qt.AlignmentFlag.AlignCenter)  #bonus
+
         middle_layout = QVBoxLayout()
         middle_layout.addStretch()
         middle_layout.addWidget(conductivity_label)
         middle_layout.addWidget(self.conductivity_box)
         middle_layout.addSpacing(10)
         middle_layout.addWidget(self.bridge)
+        middle_layout.addWidget(self.watt_label)  #bonus
         middle_layout.addStretch()
 
         top_layout = QHBoxLayout()
@@ -216,6 +225,10 @@ class HeatTransfer(QWidget):
         if self.start_button.isChecked():
             self.body1 = Body(self.mass1_box.value(), self.cap1_box.value(), self.temp1_box.value())
             self.body2 = Body(self.mass2_box.value(), self.cap2_box.value(), self.temp2_box.value())
+            self.time = 0
+            self.time_history = [0]
+            self.body1_temp_history = [self.body1.temperature]
+            self.body2_temp_history = [self.body2.temperature]
             self.start_button.setText("Stop")
             self.set_inputs_enabled(False)
             self.timer.start(int(self.dt * 1000))
@@ -246,12 +259,23 @@ class HeatTransfer(QWidget):
         new_t1 = self.body1.add_heat(q1)
         new_t2 = self.body2.add_heat(q2)
 
+        self.time = self.time + self.dt
+        self.time_history.append(self.time)
+        self.body1_temp_history.append(new_t1)
+        self.body2_temp_history.append(new_t2)
+
         self.slider1.setValue(round(new_t1))
         self.slider2.setValue(round(new_t2))
         self.temp1_box.setValue(new_t1)
         self.temp2_box.setValue(new_t2)
         self.update_color(self.box1, new_t1)
         self.update_color(self.box2, new_t2)
+
+        self.watt_label.setText("Heat flow: " + str(round(abs(i1), 2)) + " W")  #bonus
+
+        if abs(new_t1 - new_t2) < 0.1:  #bonus
+            self.start_button.setChecked(False)  #bonus
+            self.start_stop_button_method()  #bonus
 
 
 if __name__ == "__main__":

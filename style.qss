@@ -229,3 +229,10 @@ QDoubleSpinBox:disabled {
 QSlider::handle:vertical:disabled {
     border: 3px solid #C9CEDB;
 }
+
+/* ===== heat flow label (bonus) ===== */
+#wattLabel {
+    color: #6C63FF;
+    font-size: 10pt;
+    font-weight: 700;
+}
