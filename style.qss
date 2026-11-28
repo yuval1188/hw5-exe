@@ -171,3 +171,51 @@ QDoubleSpinBox::up-button, QDoubleSpinBox::down-button {
     width: 0px;
     border: none;
 }
+
+
+
+/* ===== graph window ===== */
+#graphTitle {
+    color: #1E2640;
+    font-size: 18pt;
+    font-weight: 700;
+}
+
+QComboBox {
+    background-color: #FFFFFF;
+    border: 1px solid #D6DCE8;
+    border-radius: 9px;
+    padding: 7px 12px;
+    min-width: 150px;
+    color: #2E3650;
+}
+
+QComboBox:hover {
+    border: 1px solid #6C63FF;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid #D6DCE8;
+    selection-background-color: #F0EFFF;
+    selection-color: #6C63FF;
+    outline: none;
+}
+
+#clearButton {
+    background-color: #FFFFFF;
+    color: #6C63FF;
+    border: 2px solid #6C63FF;
+}
+
+#clearButton:hover {
+    background-color: #F0EFFF;
+}
+
+#exportButton {
+    background-color: #2BB67D;
+}
+
+#exportButton:hover {
+    background-color: #24A06D;
+}

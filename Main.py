@@ -2,7 +2,8 @@ import sys
 from PySide6.QtWidgets import (QApplication, QWidget, QLabel, QPushButton, QSlider,
                              QDoubleSpinBox, QFrame, QHBoxLayout, QVBoxLayout, QGridLayout)
 from PySide6.QtCore import Qt
-
+from AboutWindow import AboutWindow
+from GraphWindow import GraphWindow
 
 class HeatTransfer(QWidget):
     def __init__(self):
@@ -171,7 +172,16 @@ class HeatTransfer(QWidget):
         main_layout.addLayout(header_layout)
         main_layout.addWidget(card)
         self.setLayout(main_layout)
+        self.about_button.clicked.connect(self.open_about)
+        self.graphs_button.clicked.connect(self.open_graphs)
 
+    def open_about(self):
+        self.about_window = AboutWindow("https://github.com/yuval1188/hw-exe2")
+        self.about_window.show()
+
+    def open_graphs(self):
+        self.graph_window = GraphWindow(self)
+        self.graph_window.show()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
